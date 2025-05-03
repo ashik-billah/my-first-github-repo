@@ -1,0 +1,122 @@
+import { useEffect, useState } from 'react';
+import './App.css';
+
+const companies = [
+  {
+    _id: "1",
+    name: "Grameenphone",
+    sector: "Telecommunications",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Grameenphone_Logo_GP_Logo.svg/504px-Grameenphone_Logo_GP_Logo.svg.png",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 1997
+  },
+  {
+    _id: "2",
+    name: "BRAC",
+    sector: "Non-profit, Development",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/BRAC_logo_2015.svg",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 1972
+  },
+  {
+    _id: "3",
+    name: "Airtel Bangladesh",
+    sector: "Telecommunications",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Airtel_logo.svg",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 2010
+  },
+  {
+    _id: "4",
+    name: "Bashundhara Group",
+    sector: "Conglomerate (Real Estate, Cement, etc.)",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/9/92/Bashundhara_Group_logo.png",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 1987
+  },
+  {
+    _id: "5",
+    name: "Dutch-Bangla Bank",
+    sector: "Banking and Financial Services",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/Dutch_Bangla_Bank_Logo.png",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 1996
+  },
+  {
+    _id: "6",
+    name: "Robi Axiata Limited",
+    sector: "Telecommunications",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Robi_Logo_2020.png",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 1995
+  },
+  {
+    _id: "7",
+    name: "City Group",
+    sector: "Food & Beverages",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/City_Group_Logo.png",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 1972
+  },
+  {
+    _id: "8",
+    name: "Walton Group",
+    sector: "Electronics and Home Appliances",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Walton_Group_logo.png",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 1977
+  },
+  {
+    _id: "9",
+    name: "Jamuna Group",
+    sector: "Conglomerate (Real Estate, Textile, etc.)",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Jamuna_Group_Logo.png",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 1974
+  },
+  {
+    _id: "10",
+    name: "Madhur Bansuri",
+    sector: "Food Products (Rice)",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Madhur_Bansuri_logo.png",
+    headquarters: "Dhaka, Bangladesh",
+    founded: 2000
+  }
+];
+
+function App() {
+  const [companiesState, setCompanies] = useState(companies);
+
+  return (
+    <div className="App">
+      <h1>Top Bangladeshi Companies</h1>
+
+      {/* Basic List View */}
+      <h2>Company List (Basic View)</h2>
+      <ul>
+        {companiesState.map(c => (
+          <li key={c._id}>
+            <img src={c.logo} alt={c.name} width="50" />
+            <strong>{c.name}</strong> - {c.sector}, {c.headquarters} ({c.founded})
+          </li>
+        ))}
+      </ul>
+
+      {/* Card Style View */}
+      <h2>Company Cards (Detailed View)</h2>
+      <div className="company-cards">
+        {companiesState.map(c => (
+          <div key={c._id} className="company-card">
+            <img src={c.logo} alt={c.name} width="80" />
+            <h3>{c.name}</h3>
+            <p><strong>Sector:</strong> {c.sector}</p>
+            <p><strong>Headquarters:</strong> {c.headquarters}</p>
+            <p><strong>Founded:</strong> {c.founded}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default App;
